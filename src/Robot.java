@@ -8,6 +8,7 @@ public class Robot {
 
     char direction;
 
+    ArrayList<Point> pointList = new ArrayList<>();
 
 
     public Robot() {
@@ -15,7 +16,7 @@ public class Robot {
         this.y = 0;
         Random random = new Random();
         int r = random.nextInt(4);
-        switch (r){
+        switch (r) {
             case 0:
                 direction = 'n';
                 break;
@@ -29,14 +30,14 @@ public class Robot {
                 direction = 'e';
                 break;
         }
-
+        pointList = new ArrayList<>();
+        pointList.add(new Point(0,0));
     }
 
 
+    public void move() {
 
-    public void move( ){
-
-        switch (direction){
+        switch (direction) {
             case 'n':
                 y++;
                 break;
@@ -51,6 +52,7 @@ public class Robot {
                 break;
 
         }
+        addPoitToList(x, y);
     }
 
     public void rotateRight() {
@@ -70,22 +72,27 @@ public class Robot {
         }
     }
 
-        public void rotateLeft() {
-            switch (direction) {
-                case 'n':
-                    direction = 'w';
-                    break;
-                case 's':
-                    direction = 'e';
-                    break;
-                case 'w':
-                    direction = 's';
-                    break;
-                case 'e':
-                    direction = 'n';
-                    break;
-            }
+    public void rotateLeft() {
+        switch (direction) {
+            case 'n':
+                direction = 'w';
+                break;
+            case 's':
+                direction = 'e';
+                break;
+            case 'w':
+                direction = 's';
+                break;
+            case 'e':
+                direction = 'n';
+                break;
         }
+    }
+
+    public void addPoitToList(int a, int b){
+        Point p = new Point(a,b);
+        pointList.add(p);
+    }
 
 }
 
