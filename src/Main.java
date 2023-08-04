@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -31,11 +30,25 @@ public class Main {
         String fileOutput = "src/res.txt";
 
         String s = readStringFromFile(fileInput1);
+
+        int step = -1;
+
         for (int i = 0; i < s.length(); i++) {
             switch (s.charAt(i)){
                 case 'S':
                   r.move();
-                  r.addPoitToList(r.x, r.y);
+                  Point p=new Point(r.x, r.y);
+                  r.addPointToList(new Point(r.x, r.y));
+                  if (!r.pointList.contains(p)){
+                      if (step==-1) step = 1;
+                              else step++;
+                  }
+                  else{
+                      System.out.println(step);
+                  }
+
+
+
 
             }
         }

@@ -52,7 +52,7 @@ public class Robot {
                 break;
 
         }
-        addPoitToList(x, y);
+        addPointToList(new Point(x,y));
     }
 
     public void rotateRight() {
@@ -89,8 +89,7 @@ public class Robot {
         }
     }
 
-    public void addPoitToList(int a, int b){
-        Point p = new Point(a,b);
+    public void addPointToList(Point p){
         pointList.add(p);
     }
 
